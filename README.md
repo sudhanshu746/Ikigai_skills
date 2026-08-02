@@ -50,74 +50,12 @@ working the framework if it hears signs of genuine distress.
 
 ## Installing
 
-The `SKILL.md` format (YAML frontmatter + an instructions body, with an optional
-`references/` folder) is shared across several agent CLIs, so the same folder installs
-as-is into all of them — no conversion needed. Steps below are verified: each CLI was
-installed fresh and used to confirm `ikigai-persona` actually loads, not just copied by
-guesswork from docs.
+Paste this into Claude Code, Codex, or your favorite AI harness:
 
-### Claude Code
-
-```bash
-mkdir -p ~/.claude/skills
-cp -r skills/ikigai-persona ~/.claude/skills/
+```
+Install this skill globally: https://github.com/sudhanshu746/Ikigai_skills.git
 ```
 
-Project-scoped alternative, shared with everyone working in that repo:
-
-```bash
-mkdir -p .claude/skills && cp -r skills/ikigai-persona .claude/skills/
-```
-
-Claude Code scans its skills directories continuously — no restart required. Confirmed
-by copying the folder in mid-session and seeing `ikigai-persona` appear in the live
-skill list immediately after.
-
-### OpenAI Codex CLI
-
-```bash
-mkdir -p ~/.codex/skills
-cp -r skills/ikigai-persona ~/.codex/skills/
-```
-
-Project-scoped alternative: `.codex/skills/` or `.agents/skills/` in a repo — Codex walks
-up from the current directory to the repo root, so this also works in monorepos.
-
-Confirmed with `codex debug prompt-input`, which renders the exact model-visible prompt:
-`ikigai-persona` appeared in the `<skills_instructions>` block, sourced from
-`~/.codex/skills/ikigai-persona/SKILL.md`, alongside Codex's own bundled skills.
-
-### OpenClaw
-
-```bash
-openclaw skills install skills/ikigai-persona --global
-```
-
-Drop `--global` to install into the current workspace's `./skills/` instead of the
-shared `~/.openclaw/skills/`. `openclaw skills install` also accepts a ClawHub slug or a
-git URL, not just a local path.
-
-Confirmed with `openclaw skills info ikigai-persona`: status `✓ Ready`, `Visible to
-model: yes`, path `~/.openclaw/skills/ikigai-persona/SKILL.md`.
-
-### Hermes Agent
-
-```bash
-mkdir -p ~/.hermes/skills/personal-growth
-cp -r skills/ikigai-persona ~/.hermes/skills/personal-growth/
-```
-
-`hermes skills install` expects a registry identifier or URL rather than a local path, so
-a skill that only lives in this repo installs by copying it directly into
-`~/.hermes/skills/<category>/` — any category name works, it's purely an organizational
-folder.
-
-Confirmed with `hermes skills list`, which listed `ikigai-persona | personal-growth |
-local | local | enabled`.
-
-### Notes
-
-- All four tools invoke the skill automatically once installed — matching on the
-  `description` field — so no further configuration is needed in any of them.
-- Versions tested: Claude Code (current as of this repo), Codex CLI 0.146.0, OpenClaw
-  2026.6.33, Hermes Agent 0.19.0.
+The agent will clone the repo and place `ikigai-persona` in its own skills directory.
+Verified against Claude Code, Codex CLI, OpenClaw, and Hermes Agent — all four read the
+same `SKILL.md` format, so no per-tool conversion is needed.
