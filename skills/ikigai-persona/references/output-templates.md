@@ -11,6 +11,7 @@ person's situation demands.
 - [2. Ikigai map](#2-ikigai-map)
 - [3. Purpose statement](#3-purpose-statement)
 - [4. Experiments](#4-experiments)
+- [5. The SVG diagram](#5-the-svg-diagram)
 - [Worked example](#worked-example)
 
 ## The standard to hit
@@ -141,6 +142,26 @@ Good experiments are reversible, cheap, and produce information regardless of ou
 ask what their worst week looks like" is. Bias toward tests that expose someone to the
 *daily texture* of a path rather than its highlight reel — most career regret comes from
 falling in love with the outcome and discovering you hate the Tuesday.
+
+## 5. The SVG diagram
+
+Built with `scripts/make_ikigai_svg.py` (see step 7 of SKILL.md for the command and the
+JSON shape). The translation from the documents above into the diagram is a compression,
+and compressing badly is how you end up with a picture that says nothing:
+
+**Circle items** are labels, not sentences — four or five words. Pull them from the
+persona's energy sources, signature strengths, who-they-serve, and proven earning, in
+that order. "Onboarding new engineers" belongs in a circle; "described the two weeks
+pairing with a new grad as the only time last year I didn't check the clock" belongs in
+the persona document, which is where the evidence lives.
+
+**The centre** is the raw purpose statement trimmed to its spine — under about fourteen
+words. If it will not compress that far, that is usually the diagram telling you the
+statement is still carrying two ideas that need separating.
+
+**A thin quadrant stays thin.** Do not pad a circle to make the picture look balanced.
+Two honest items beat four where half were invented, and the visible gap is doing real
+work: it shows them exactly where the next experiment should point.
 
 ## Worked example
 

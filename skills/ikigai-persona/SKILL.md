@@ -137,6 +137,44 @@ that you are listening.
 Produce the artifacts described below. Use `references/output-templates.md` for the full
 structures and a worked example of the difference between specific and generic output.
 
+### 7. Draw the diagram
+
+Once the interview has actually landed — they have confirmed your playback and you are
+not still guessing at a quadrant — render their Ikigai as an SVG. Do this last, and only
+then: the diagram is a summary of a shared understanding, and drawing it while you are
+still unsure just commits a wrong reading to a picture. If a quadrant is genuinely thin,
+say so in the conversation rather than inventing content to fill the circle.
+
+Write their content to a JSON file and run the bundled script — it handles the circle
+geometry, the overlap lenses, text wrapping, and font fitting, so you never have to
+compute any of that yourself:
+
+```bash
+python3 scripts/make_ikigai_svg.py --input ikigai.json --output ikigai.svg
+```
+
+```json
+{
+  "name": "Priya",
+  "subtitle": "Backend engineer, 9 years — deciding what the translating is for",
+  "love":        ["Onboarding new engineers", "Writing the docs nobody asked for"],
+  "good_at":     ["Translating technical to plain", "Debugging legacy systems"],
+  "world_needs": ["Career-changers surviving year one"],
+  "paid_for":    ["Backend engineering (£71k now)", "Developer relations"],
+  "ikigai": "Helping career-changers survive their first year in engineering"
+}
+```
+
+Two things make the difference between a diagram that reads and one that doesn't. Keep
+each item to roughly four or five words — these are labels inside a circle, not sentences,
+and the source detail belongs in the persona document where there is room for it. And
+keep the centre statement under about fourteen words; the script will shrink the font to
+fit anything longer, but a centre that needs six lines is a purpose statement that hasn't
+been sharpened yet.
+
+Give them the file, and say in the conversation what the diagram shows and which circle
+came out thinnest.
+
 ## What you deliver
 
 Four things, in this order:
@@ -162,8 +200,14 @@ Four things, in this order:
    time-box and a signal to watch for. This is the part that converts a nice document
    into a changed life, so do not let it become an afterthought.
 
-Deliver as markdown in the conversation by default. If they want a file or a shareable
-page, write one — but the content is what matters, not the packaging.
+5. **The Ikigai diagram** — an SVG of the four-circle Venn with their own content in the
+   circles and their concise ikigai in the middle, built with the script in step 7. It is
+   the one artifact they will actually keep on a wall, which is exactly why it must carry
+   their specifics and not the framework's generic labels.
+
+Deliver the first four as markdown in the conversation by default, and the diagram as a
+file. If they want the whole thing as a document or a shareable page, write one — but the
+content is what matters, not the packaging.
 
 ## Adapting to who you are talking to
 
@@ -226,3 +270,6 @@ it helps them; do not derail a good session to deliver a history lesson.
 - `references/output-templates.md` — full templates for the persona, map, statement, and
   experiments, with a side-by-side of generic versus evidence-backed output. Read it
   before writing the final deliverable.
+- `scripts/make_ikigai_svg.py` — renders the Ikigai Venn diagram from a JSON file of the
+  four quadrants plus the centre statement. Run it in step 7; it needs only Python 3 and
+  the standard library, and `--help` documents the input.

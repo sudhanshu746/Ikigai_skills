@@ -8,13 +8,15 @@ them.
 
 ### `ikigai-persona`
 
-Runs a proactive, question-by-question Ikigai interview and produces four things:
+Runs a proactive, question-by-question Ikigai interview and produces five things:
 
 1. **A persona** — who this person actually is, with the evidence attached
 2. **An Ikigai map** — the four quadrants and their overlaps, filled in from their own
    words, with the thin quadrant named honestly
 3. **A purpose statement** — structured and raw versions
 4. **Experiments** — two or three small, time-boxed, reversible tests to run next
+5. **An SVG diagram** — the classic four-circle Venn, carrying their own content in the
+   circles and their concise ikigai in the middle
 
 It triggers on requests about purpose, calling, career direction, feeling stuck or
 burned out, choosing between paths, or building a persona — including when the word
@@ -23,10 +25,12 @@ burned out, choosing between paths, or building a persona — including when the
 ```
 skills/ikigai-persona/
 ├── SKILL.md                          # interview flow and principles
-└── references/
-    ├── interview-guide.md            # question bank + probing techniques
-    ├── ikigai-framework.md           # the quadrants, diagnostics, history, limits
-    └── output-templates.md           # deliverable templates + worked example
+├── references/
+│   ├── interview-guide.md            # question bank + probing techniques
+│   ├── ikigai-framework.md           # the quadrants, diagnostics, history, limits
+│   └── output-templates.md           # deliverable templates + worked example
+└── scripts/
+    └── make_ikigai_svg.py            # renders the Venn diagram from JSON
 ```
 
 ## Design notes
@@ -40,6 +44,11 @@ twenty — short lists get stories, long lists get one-word answers.
 "when did you last lose track of time?" returns evidence. Every line in the final output
 should trace back to something the person actually said, which is what separates a
 useful portrait from a horoscope.
+
+**The diagram comes last, and only when the interview has landed.** The SVG is a summary
+of a shared understanding — drawing it while a quadrant is still guesswork just commits a
+wrong reading to a picture. A thin circle stays visibly thin rather than being padded for
+symmetry, because the gap shows where the next experiment should point.
 
 **It is honest about the framework.** The four-circle Venn diagram is a Western
 construction from around 2014, not a traditional Japanese teaching — Japanese *ikigai*
