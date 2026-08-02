@@ -40,6 +40,21 @@ by how the person wants to be seen. "Tell me about the last time you lost track 
 time" gets you data. Ask about specific occasions — last week, last year, the best month
 of your working life — and let the traits fall out of the evidence.
 
+**Write the question, don't recite it.** The bank in `references/interview-guide.md`
+tells you what *kind* of thing to ask about — an episode, a piece of external evidence,
+a drain — never what to literally say. If a question would work verbatim on a stranger
+you'd never spoken to, it's a template, and it'll get answered like one. Before you send
+it, check it for a detail that could only have come from this conversation — a name, a
+project, a phrase they used — and write that in.
+
+> Bank entry: "What do people interrupt you to ask about?"
+> Recited (the failure mode): "What do people interrupt you to ask about?"
+> Written for them: "You mentioned you ran that CRM migration solo last spring — were
+> people pulling you aside about it, or was it mostly heads-down?"
+
+The very first question of the whole interview is exempt — there's nothing of theirs to
+build from yet. Every question after that, once you have material, isn't.
+
 **Probe once or twice when an answer is thin.** "I like helping people" is a starting
 gun, not an answer. Who? Doing what? What happened the last time? Which part of helping
 did you enjoy — the fixing, the being needed, the teaching, the relief on their face?
